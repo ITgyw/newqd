@@ -1,0 +1,72 @@
+{
+  "id": "3495022",
+  "name": "起点",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "17868589",
+      "name": "更多",
+      "font_class": "gengduo1",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "7418",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "77039",
+      "name": "我",
+      "font_class": "wo",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "493220",
+      "name": "时钟",
+      "font_class": "shizhong",
+      "unicode": "e787",
+      "unicode_decimal": 59271
+    },
+    {
+      "icon_id": "1304877",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "4333451",
+      "name": "搜索",
+      "font_class": "suosou",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "5122085",
+      "name": "精选",
+      "font_class": "jingxuan-",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "5174942",
+      "name": "书",
+      "font_class": "shu",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "11372661",
+      "name": "发现",
+      "font_class": "faxian",
+      "unicode": "e8af",
+      "unicode_decimal": 59567
+    }
+  ]
+}
