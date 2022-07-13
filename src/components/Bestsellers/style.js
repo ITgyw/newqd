@@ -1,54 +1,36 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    .module {
-        .module-header{
-            padding:0.62rem 0.5rem 0.56rem 0.5rem;
-            border: 0 0 1px 0;
+    .module{
+        /* border-radius: 5rem; */
+        padding:0.6rem;
+        margin: 0 0 0.4rem 0;
+        .nav {
+            margin: 0 0 1rem 0.3rem;
             display:flex;
-            justify-content: space-between;
-            
-            .nav{
-
-                display: flex;
-                justify-items:center;
-                .icon  {
-                    
-                    margin:0.05rem 1rem 0 0;
-                    i{
-                        font-size:0.9rem;
-                    }
-                }
-                .title {
-                    font-family:sans-serif;
-                    color:33373D;
-                    font-size:0.70rem;
-                    
-                }
+            justify-content:space-between;
+            h2{
+                color: #33373D;
+                font-size:0.8rem;
+                font-weight:700;
             }
-            .bar{
+            .icon {
                 display:flex;
-                .icon1{
-                    margin:0 0.25rem;
-                    i{
-                        font-size:1rem;
-                    }
+                h2{
+                    color: #969BA3;
+                    font-size:0.687rem;
+                    text-align:center;
                 }
-                .icon2{
-                    margin:0 0.5rem;
-                    i {
-                        font-size:0.9rem;
-                    }
+                p{
+                    padding:0.1rem 0 0.2rem 0;
                 }
             }
         }
         .book {
-            li{                                 
+            li{
                 .item {
                     margin:0 0.3rem 0.3rem 0.3rem;
                     display:flex;
-                    border: 0 0 1px 0 ;
-                    /* border-color:#33373D; */
                     p{
                         margin: 0 0.4rem 0 0;
                         img{
@@ -58,14 +40,11 @@ export const Wrapper = styled.div`
                     }
                     .content {
                             .title{
-                                font-family:sans-serif;
                                 color:#33373D;
                                 font-size:0.8rem;
                                 font-weight:bold;
-                                text-align:left;
                             }
-                            .text{
-                                margin: 0.5rem 0 0 0;
+                            p{
                                 color: #969BA3;
                                 font-size:0.78rem;
                                 display: -webkit-box;
@@ -75,10 +54,9 @@ export const Wrapper = styled.div`
                                 -webkit-line-clamp: 2;
                             }
                             .label{
-                                margin: 0.5rem 0 0.2rem 0;
+                                margin: 0.9rem 0 0.2rem 0;
                                 display:flex;
                                 .mear{
-                                    text-align:left;
                                     flex:1;
                                     color: #969BA3;
                                     font-size:0.73rem;

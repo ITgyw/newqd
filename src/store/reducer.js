@@ -1,9 +1,19 @@
 import { combineReducers } from "redux";
 // store中央
 // 地方
-import { reducer as maleReducer } from '@/pages/Select/Male/store/index'//as取名
+import {
+    reducer as maleReducer,
+
+} from '@/pages/Select/Male/store/index'//as取名
+import {
+    reducer as moreReducer
+} from '@/pages/More/store/index'
+import {
+    reducer as searchReducer
+} from '@/pages/Search/store/index'
 
 export default combineReducers({
-    male: maleReducer
-
+    male: maleReducer,
+    more: moreReducer,
+    search: searchReducer
 })

@@ -33,7 +33,7 @@ export default function SelectNav() {
 
                 </div>
                 <p className='search red' >
-                    <i className='iconfont icon-suosou'></i>
+                    <NavLink className='iconfont icon-suosou' to={'/search'}></NavLink>
                 </p>
             </header>
 

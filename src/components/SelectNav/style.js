@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
             height:1.3rem;
             /* position: absolute; */
             color:#ed424b;
-            i{
+            .icon-suosou  {
                 display:inline-block;
                 width: 50%;
                 height:100%;
