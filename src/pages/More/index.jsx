@@ -11,7 +11,6 @@ function More(props) {
     const { moreList } = props
     const { getMoreDataDispatch } = props
     let { id } = useParams();
-
     useEffect(() => {
         getMoreDataDispatch();
     }, [])
@@ -62,10 +61,10 @@ function More(props) {
                     </div>
                     <div className="bar">
                         <div className="icon1">
-                            <i className='iconfont icon-suosou'></i>
+                            <i className='iconfont icon-sousuo'></i>
                         </div>
                         <div className="icon2">
-                            <i className='iconfont icon-gengduo1'></i>
+                            <i className='iconfont icon-gengduo2'></i>
                         </div>
                     </div>
 

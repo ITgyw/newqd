@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 3495022 */
-  src: url('iconfont.woff2?t=1656683883081') format('woff2'),
-       url('iconfont.woff?t=1656683883081') format('woff'),
-       url('iconfont.ttf?t=1656683883081') format('truetype');
+  font-family: "iconfont"; /* Project id 3520907 */
+  src: url('iconfont.woff2?t=1657733952983') format('woff2'),
+       url('iconfont.woff?t=1657733952983') format('woff'),
+       url('iconfont.ttf?t=1657733952983') format('truetype');
 }
 
 .iconfont {
@@ -14,7 +14,11 @@
 }
 
 .icon-gengduo1:before {
-  content: "\e60c";
+  content: "\e620";
+}
+
+.icon-gengduo2:before {
+  content: "\e606";
 }
 
 .icon-fanhui:before {
@@ -25,16 +29,20 @@
   content: "\e601";
 }
 
+.icon-gengduo:before {
+  content: "\e602";
+}
+
 .icon-shizhong:before {
   content: "\e787";
 }
 
-.icon-gengduo:before {
-  content: "\e620";
+.icon-shuaxin:before {
+  content: "\e62e";
 }
 
-.icon-suosou:before {
-  content: "\e60b";
+.icon-sousuo:before {
+  content: "\e647";
 }
 
 .icon-jingxuan-:before {
@@ -45,7 +53,11 @@
   content: "\e617";
 }
 
+.icon-24gl-trash:before {
+  content: "\eb45";
+}
+
 .icon-faxian:before {
-  content: "\e8af";
+  content: "\e636";
 }
 

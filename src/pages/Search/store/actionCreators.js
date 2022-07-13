@@ -10,8 +10,9 @@ export const getSearchList = () => {
     return (dispatch) => {
         getSearchRequest()
             .then(data => {
-                console.log(data, '搜索列表')
+                // console.log(data, '搜索列表')
                 dispatch(changeSearchList(data))
+                console.log(data, '11111');
             })
     }
 }

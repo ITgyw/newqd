@@ -1,16 +1,23 @@
 {
-  "id": "3495022",
+  "id": "3520907",
   "name": "起点",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "17868589",
+      "icon_id": "1304877",
       "name": "更多",
       "font_class": "gengduo1",
-      "unicode": "e60c",
-      "unicode_decimal": 58892
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "18336448",
+      "name": "更多",
+      "font_class": "gengduo2",
+      "unicode": "e606",
+      "unicode_decimal": 58886
     },
     {
       "icon_id": "7418",
@@ -27,6 +34,13 @@
       "unicode_decimal": 58881
     },
     {
+      "icon_id": "77822",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "493220",
       "name": "时钟",
       "font_class": "shizhong",
@@ -34,18 +48,18 @@
       "unicode_decimal": 59271
     },
     {
-      "icon_id": "1304877",
-      "name": "更多",
-      "font_class": "gengduo",
-      "unicode": "e620",
-      "unicode_decimal": 58912
+      "icon_id": "954728",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
     },
     {
-      "icon_id": "4333451",
+      "icon_id": "992445",
       "name": "搜索",
-      "font_class": "suosou",
-      "unicode": "e60b",
-      "unicode_decimal": 58891
+      "font_class": "sousuo",
+      "unicode": "e647",
+      "unicode_decimal": 58951
     },
     {
       "icon_id": "5122085",
@@ -62,11 +76,18 @@
       "unicode_decimal": 58903
     },
     {
-      "icon_id": "11372661",
+      "icon_id": "7596940",
+      "name": "24gl-trash",
+      "font_class": "24gl-trash",
+      "unicode": "eb45",
+      "unicode_decimal": 60229
+    },
+    {
+      "icon_id": "11391500",
       "name": "发现",
       "font_class": "faxian",
-      "unicode": "e8af",
-      "unicode_decimal": 59567
+      "unicode": "e636",
+      "unicode_decimal": 58934
     }
   ]
 }

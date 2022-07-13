@@ -28,16 +28,18 @@ export const Wrapper = styled.div`
             }
             .bar{
                 display:flex;
-                .icon1{
-                    margin:0 0.25rem;
+                justify-items:center;
+                .icon1 {
+                    padding-bottom:0.05rem;
                     i{
-                        font-size:1rem;
+                        font-size:1.2rem;
                     }
                 }
-                .icon2{
+                .icon2 {
                     margin:0 0.5rem;
+                    padding-top:0.07rem;
                     i {
-                        font-size:0.9rem;
+                        font-size:0.8rem;
                     }
                 }
             }

@@ -42,7 +42,7 @@ export default function Bestsellers({ bestsellersList }) {
                         <NavLink className='icon' to='/more/1314'>
                             <h2>更多</h2>
                             <div >
-                                <p className='iconfont icon-gengduo'></p>
+                                <p className='iconfont icon-gengduo1'></p>
                             </div>
                         </NavLink>
 

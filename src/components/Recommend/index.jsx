@@ -68,7 +68,7 @@ export default function Recommend({ recommendList }) {
                         <NavLink className='icon' to="/more/1315" >
                             <h2>更多</h2>
                             <div >
-                                <i className='iconfont icon-gengduo'></i>
+                                <i className='iconfont icon-gengduo1'></i>
                             </div>
                         </NavLink>
                     </div>
