@@ -14,3 +14,5 @@ export const getHistoryRequest =
     () => axiosInstance.get('./history')
 export const getFoundRequest =
     () => axiosInstance.get('./found')
+export const getBookshelfRequest =
+    () => axiosInstance.get('./bookshelf')

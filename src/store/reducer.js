@@ -11,9 +11,13 @@ import {
 import {
     reducer as searchReducer
 } from '@/pages/Search/store/index'
+import {
+    reducer as bookReducer
+} from '@/pages/Bookshelf/store/index'
 
 export default combineReducers({
     male: maleReducer,
     more: moreReducer,
-    search: searchReducer
+    search: searchReducer,
+    book: bookReducer
 })
