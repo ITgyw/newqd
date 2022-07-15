@@ -1,13 +1,19 @@
 import * as actionTypes from './constants'
 const defaultState = {
-    searchList: []
+    historyList: [],
+    foundList: []
 }
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case actionTypes.CHANGE_SEARCH:
+        case actionTypes.CHANGE_HISTORY:
             return {
                 ...state,
-                searchList: action.data
+                historyList: action.data
+            }
+        case actionTypes.CHANGE_FOUND:
+            return {
+                ...state,
+                foundList: action.data
             }
         default:
             return state

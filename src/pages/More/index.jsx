@@ -22,7 +22,7 @@ function More(props) {
                 // 外层不能加{}，对象包对象筛不出来
                 item.id == id
         );
-        // console.log(res, '77777777777');
+        console.log(res, '77777777777');
         const renderBtnBannersPage = () => {
             return res[0].contain.map(item => {
                 return (
@@ -67,7 +67,6 @@ function More(props) {
                             <i className='iconfont icon-gengduo2'></i>
                         </div>
                     </div>
-
                 </div>
                 <ol className="book">
                     {renderBtnBannersPage()}

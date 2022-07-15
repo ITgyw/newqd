@@ -1,84 +1,106 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { actionCreators } from './store/index'
-
-const Search = (props) => {
-    const { searchList } = props
-    const { getSearchDataDispatch } = props
+import React from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom"
+import { connect } from "react-redux";
+import { actionCreators } from "./store/index";
+import { Wrapper, HistoryWrapper, FoundWrapper } from './style'
+function Search(props) {
+    const { historyList, foundList } = props
+    const { getHistoryDataDispatch, getFoundDataDispatch } = props
     useEffect(() => {
-        getSearchDataDispatch();
-        // console.log(searchList, '11111111');
+        getHistoryDataDispatch(),
+            getFoundDataDispatch()
     }, [])
 
-    const Info = (searchList) => {
-        let history = searchList.history;
-        let found = searchList.found;
-        console.log(history, found)
+    const Info = (historyList, foundList) => {
+        console.log(historyList, '11');
+        console.log(foundList, '22');
+        const historyInfo = () => {
+            return historyList.map((item) => {
+                return (
+                    <li
+                        className='item'
+                        key={item.id}
+                    >
+                        {item.title}
+                    </li>
+                )
+            })
+        }
+        const foundInfo = () => {
+            return foundList.map((item) => {
+                return (
+                    <li
+                        className='item'
+                        key={item.id}
+                    >
+                        {item.title}
+                    </li>
+                )
+            })
+        }
         return (
             <div>
-                <ul>
+                <HistoryWrapper>
                     <div className='header'>
                         <h2>搜索历史</h2>
                         <div className="icon">
                             <i className="iconfont icon-24gl-trash"></i>
                         </div>
                     </div>
-                    {
-                        history.map((item) => {
-                            return (
-                                <li
-                                    className='item'
-                                    key={item.id}
-                                >
-                                    {item.title}
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-                <ul>
+                    <ul className="history">
+                        {historyInfo()}
+                    </ul>
+                </HistoryWrapper>
+                <FoundWrapper>
                     <div className='header'>
                         <h2>搜索发现</h2>
                         <div className="icon">
                             <i className="iconfont icon-shuaxin"></i>
                         </div>
                     </div>
-                    {
-                        found.map((item) => {
-                            return (
-                                <li
-                                    className='item'
-                                    key={item.id}
-                                >
-                                    {item.title}
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
+                    <ul className="found">
+                        {foundInfo()}
+                    </ul>
+                </FoundWrapper>
             </div>
         )
-
     }
-
     return (
-        <div>
 
-            {Info(searchList)}
-        </div>
+        <Wrapper>
+            <div className="SearchBox">
+                <div className="Box">
+                    <i className="iconfont icon-sousuo"></i>
+                    <input type="text" className='box'
+                        placeholder='凡人修仙传'
+                    />
+                    <i
+                        className="iconfont icon-delete"
+                    >&#xe61d;</i>
+                </div>
+                <Link className="back" to='/select/male'>取消</Link>
+            </div>
+            {Info(historyList, foundList)}
+        </Wrapper>
     )
 }
-// state 状态树
+
 const mapStateToProps = (state) => {
     return {
-        searchList: state.search.searchList
+        historyList: state.search.historyList,
+        foundList: state.search.foundList
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSearchDataDispatch() {
-            dispatch(actionCreators.getSearchList())
+        getHistoryDataDispatch() {
+            dispatch(actionCreators.getHistoryList())
+        },
+        getFoundDataDispatch() {
+            dispatch(actionCreators.getFoundList())
         }
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Search)

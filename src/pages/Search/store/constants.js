@@ -1,1 +1,2 @@
-export const CHANGE_SEARCH = 'CHANGE_SEARCH'
+export const CHANGE_HISTORY = 'CHANGE_HISTORY'
+export const CHANGE_FOUND = 'CHANGE_FOUND'
