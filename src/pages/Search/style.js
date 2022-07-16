@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     bottom: 0;
     left: 0;
     right: 0;  
-    background:#eeeced;
+    background:#fbf1f2;
     .SearchBox {
         margin:1rem 0.5rem 0.75rem 0.5rem;
         display:flex;
@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
     }
 `
 export const HistoryWrapper = styled.div`
-    margin:1rem 0.5rem 0.75rem 0.5rem;
+    margin:1rem 0.5rem 0 0.5rem;
     color:#1a1819;
     .header{
         display:flex;
@@ -75,7 +75,7 @@ export const HistoryWrapper = styled.div`
     }
 `
 export const FoundWrapper = styled.div`
-    margin:1rem 0.5rem 0.75rem 0.5rem;
+    margin:0 0.5rem 0.75rem 0.5rem;
     color:#1a1819;
     .header{
             display:flex;

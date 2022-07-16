@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
 import { Wrapper, HistoryWrapper, FoundWrapper } from './style'
 function Search(props) {
+    const navigate = useNavigate()
     const { historyList, foundList } = props
     const { getHistoryDataDispatch, getFoundDataDispatch } = props
     useEffect(() => {
@@ -79,7 +80,7 @@ function Search(props) {
                         className="iconfont icon-delete"
                     >&#xe61d;</i>
                 </div>
-                <Link className="back" to='/select/male'>取消</Link>
+                <div className="back" onClick={() => navigate(-1)}>取消</div>
             </div>
             {Info(historyList, foundList)}
         </Wrapper>

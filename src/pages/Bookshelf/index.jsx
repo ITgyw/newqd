@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { actionCreators } from './store/index'
-import { Wrapper } from './style'
+import { Wrapper, BookWrapper } from './style'
 
 function Bookshelf(props) {
     const { bookList } = props
@@ -14,14 +15,18 @@ function Bookshelf(props) {
             return (
                 <li key={item.id} >
                     <div className="item">
-                        <div className='img'>
-                            <img src={item.img} />
-                        </div>
+                        {/* <div className='img'> */}
+                        <img src={item.img} />
+                        {/* </div> */}
                         <div className="content">
-                            <p className="title">{item.title} <i className='iconfont icon-gengduo'></i></p>
-                            <p className='author'>{item.author}</p>
-                            <p className="ell">{item.ell}</p>
+                            <div className="title">
+                                <div >{item.title}</div>
+                                <div className='iconfont icon-gengduo'></div>
+                            </div>
+                            <div className='author'>{item.author}</div>
+                            <div className="ell">{item.ell}</div>
                         </div>
+
                     </div>
                 </li>
             )
@@ -30,8 +35,8 @@ function Bookshelf(props) {
     return (
         <Wrapper>
             <div className="header">
-                <div>书架</div>
-                <div className="Box">
+                <div className='header-title'>书架</div>
+                <Link className="Box" to={'/search'}>
                     <i className="iconfont icon-sousuo"></i>
                     <input type="text" className='box'
                         placeholder='凡人修仙传'
@@ -39,11 +44,16 @@ function Bookshelf(props) {
                     <i
                         className="iconfont icon-delete"
                     >&#xe61d;</i>
+                </Link>
+                <div className='icon'>
+                    <i className='iconfont icon-shizhong'></i>
+                    <i className='iconfont icon-gengduo'></i>
                 </div>
-                <i className='iconfont icon-shizhong'></i>
-                <button className='iconfont icon-gengduo'></button>
+
             </div>
-            {bookInfo(bookList)}
+            <BookWrapper>
+                {bookInfo(bookList)}
+            </BookWrapper>
         </Wrapper>
     )
 }
