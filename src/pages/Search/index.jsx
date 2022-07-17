@@ -1,19 +1,25 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
 import { Wrapper, HistoryWrapper, FoundWrapper, ListWrapper } from './style'
 import { Tabs } from 'antd-mobile'
+import { CSSTransition } from 'react-transition-group'
 // import { DemoBlock } from 'demos'
 
 function Search(props) {
     const navigate = useNavigate()
     const { historyList, foundList, hotList, popularList } = props
     const { getHistoryDataDispatch, getFoundDataDispatch, getHotDataDispatch, getPopularDataDispatch } = props
+    const [show, setShow] = useState(false);
+    const searchBack = () => {
+        setShow(false);
+    }
     // console.log(listList, '888888');
     useEffect(() => {
-        getHistoryDataDispatch(),
+        setShow(true),
+            getHistoryDataDispatch(),
             getFoundDataDispatch(),
             getHotDataDispatch(),
             getPopularDataDispatch()
@@ -141,24 +147,37 @@ function Search(props) {
         )
     }
     return (
-        <Wrapper>
-            <div className="SearchBox">
-                <div className="Box">
-                    <i className="iconfont icon-sousuo"></i>
-                    <input type="text" className='box'
-                        placeholder='凡人修仙传'
-                    />
-                    <i
-                        className="iconfont icon-delete"
-                    >&#xe61d;</i>
+        <CSSTransition
+            in={show}
+            timeout={30000}
+            appear={true}
+            classNames="fly"
+            unmountOnExit
+            onExit={() => {
+                navigate(-1)
+            }}
+        >
+            <Wrapper>
+                <div className="SearchBox">
+                    <div className="Box">
+                        <i className="iconfont icon-sousuo"></i>
+                        <input type="text" className='box'
+                            placeholder='凡人修仙传'
+                        />
+                        <i
+                            className="iconfont icon-delete"
+                        >&#xe61d;</i>
+                    </div>
+                    <div className="back" onClick={() => {
+                        setShow(false);
+                    }}>取消</div>
                 </div>
-                <div className="back" onClick={() => navigate(-1)}>取消</div>
-            </div>
-            {Info(historyList, foundList)}
-            <ListWrapper>
-                {ListInfo(hotList, popularList)}
-            </ListWrapper>
-        </Wrapper>
+                {Info(historyList, foundList)}
+                <ListWrapper>
+                    {ListInfo(hotList, popularList)}
+                </ListWrapper>
+            </Wrapper>
+        </CSSTransition>
     )
 }
 
