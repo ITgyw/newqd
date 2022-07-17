@@ -1,2 +1,4 @@
 export const CHANGE_HISTORY = 'CHANGE_HISTORY'
 export const CHANGE_FOUND = 'CHANGE_FOUND'
+export const CHANGE_HOT = 'CHANGE_HOT'
+export const CHANGE_POPULAR = 'CHANGE_POPULAR'

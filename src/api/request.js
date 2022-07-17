@@ -16,3 +16,7 @@ export const getFoundRequest =
     () => axiosInstance.get('./found')
 export const getBookshelfRequest =
     () => axiosInstance.get('./bookshelf')
+export const getHotRequest =
+    () => axiosInstance.get('./hotlist')
+export const getPopularRequest =
+    () => axiosInstance.get('./popularlist')

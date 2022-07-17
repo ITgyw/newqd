@@ -3,19 +3,25 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
-import { Wrapper, HistoryWrapper, FoundWrapper } from './style'
+import { Wrapper, HistoryWrapper, FoundWrapper, ListWrapper } from './style'
+import { Tabs } from 'antd-mobile'
+// import { DemoBlock } from 'demos'
+
 function Search(props) {
     const navigate = useNavigate()
-    const { historyList, foundList } = props
-    const { getHistoryDataDispatch, getFoundDataDispatch } = props
+    const { historyList, foundList, hotList, popularList } = props
+    const { getHistoryDataDispatch, getFoundDataDispatch, getHotDataDispatch, getPopularDataDispatch } = props
+    // console.log(listList, '888888');
     useEffect(() => {
         getHistoryDataDispatch(),
-            getFoundDataDispatch()
+            getFoundDataDispatch(),
+            getHotDataDispatch(),
+            getPopularDataDispatch()
     }, [])
 
     const Info = (historyList, foundList) => {
-        console.log(historyList, '11');
-        console.log(foundList, '22');
+        // console.log(historyList, '11');
+        // console.log(foundList, '22');
         const historyInfo = () => {
             return historyList.map((item) => {
                 return (
@@ -67,8 +73,74 @@ function Search(props) {
             </div>
         )
     }
-    return (
+    const ListInfo = (hotList, popularList) => {
+        // console.log(hotList, popularList, '0000000');
+        // console.log(hotList.content, popularList.content, '00000');
+        // console.log(hotInfo, popularInfo, '测试');
+        const hotInfo = () => {
+            return hotList.map((item) => {
+                return (
+                    <li
+                        className='item'
+                        key={item.id}
+                    >
+                        <div className="header">
+                            <div className="left">
+                                <span>{item.id}</span>
+                                <span>{item.title}</span>
+                            </div>
+                            <div className="right">
+                                {item.hotvalue}
+                            </div>
 
+                        </div>
+                        <p>{item.text}</p>
+                    </li>
+                )
+            })
+        }
+        const tabInfo = () => {
+            return popularList.map((item) => {
+                return (
+                    <li
+                        className='item'
+                        key={item.id}
+                    >
+                        <div className="header">
+                            <div className="left">
+                                <span>{item.id}</span>
+                                <span>{item.title}</span>
+                            </div>
+                            <div className="right">
+                                {item.hotvalue}
+                            </div>
+                        </div>
+                        <p>{item.text}</p>
+                    </li>
+                )
+            })
+        }
+        return (
+            <div title='自定义当前激活的下划线长度' padding='0'>
+                <Tabs
+                    defaultActiveKey='1'
+                    activeLineMode='fixed'
+                    style={{
+                        '--fixed-active-line-width': '0px',
+                        '--active-title-color': '#ed424b',
+                    }}
+                >
+                    <Tabs.Tab title='热搜作品榜' key='1'>
+                        {hotInfo()}
+                    </Tabs.Tab>
+                    <Tabs.Tab title='人气标签榜' key='2'>
+                        {tabInfo()}
+                    </Tabs.Tab>
+                </Tabs>
+            </div>
+        )
+    }
+    return (
         <Wrapper>
             <div className="SearchBox">
                 <div className="Box">
@@ -83,6 +155,9 @@ function Search(props) {
                 <div className="back" onClick={() => navigate(-1)}>取消</div>
             </div>
             {Info(historyList, foundList)}
+            <ListWrapper>
+                {ListInfo(hotList, popularList)}
+            </ListWrapper>
         </Wrapper>
     )
 }
@@ -90,7 +165,9 @@ function Search(props) {
 const mapStateToProps = (state) => {
     return {
         historyList: state.search.historyList,
-        foundList: state.search.foundList
+        foundList: state.search.foundList,
+        hotList: state.search.hotList,
+        popularList: state.search.popularList
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -100,6 +177,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         getFoundDataDispatch() {
             dispatch(actionCreators.getFoundList())
+        },
+        getHotDataDispatch() {
+            dispatch(actionCreators.getHotList())
+        },
+        getPopularDataDispatch() {
+            dispatch(actionCreators.getPopularList())
         }
     }
 }

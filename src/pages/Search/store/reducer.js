@@ -1,7 +1,9 @@
 import * as actionTypes from './constants'
 const defaultState = {
     historyList: [],
-    foundList: []
+    foundList: [],
+    hotList: [],
+    popularList: []
 }
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -14,6 +16,16 @@ export default (state = defaultState, action) => {
             return {
                 ...state,
                 foundList: action.data
+            }
+        case actionTypes.CHANGE_HOT:
+            return {
+                ...state,
+                hotList: action.data
+            }
+        case actionTypes.CHANGE_POPULAR:
+            return {
+                ...state,
+                popularList: action.data
             }
         default:
             return state

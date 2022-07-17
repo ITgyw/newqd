@@ -108,3 +108,35 @@ export const FoundWrapper = styled.div`
     }
 
 `
+export const ListWrapper = styled.div`
+    background-color: #fff;
+    margin: 0.5rem ;
+    border-radius:1rem;
+    .item {
+        margin-bottom:0 0 0.3rem 0;
+        height:2rem;
+        .header{
+            display:flex;
+            justify-content:space-between;
+            .left{
+                font-size:0.7rem;
+                font-family:Serif;
+                font-weight:500;
+                span {
+                    margin-right:0.3rem;
+                }
+            }
+        }
+        p{
+            font-size:0.6rem;
+            font-family:Sans-serif;
+            padding-left:0.2rem;
+            color: #969BA3;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+}
+    }
+`
