@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Wrapper } from './style'
 import propTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 // import { getMoreList } from '../../pages/More/store/actionCreators'
 
-export default function Bestsellers({ bestsellersList }) {
+function Bestsellers({ bestsellersList }) {
     let items = bestsellersList
     const renderBtnBannersPage1 = () => {
         // console.log(bestsellers)
@@ -59,3 +59,4 @@ export default function Bestsellers({ bestsellersList }) {
 Bestsellers.propTypes = {
     bestsellersList: propTypes.array.isRequired
 }
+export default memo(Bestsellers)

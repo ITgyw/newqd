@@ -1,18 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from './store/index'
-import { useParams, Link, NavLink } from 'react-router-dom'
+import { useParams, Link, NavLink, useNavigate } from 'react-router-dom'
 import Scroll from '@/components/common/Scroll'
 import { forceCheck } from 'react-lazyload'
+import LazyLoad from 'react-lazyload'
 import { Wrapper } from './style'
-
+import book from '@/assets/images/book.png'
+import { CSSTransition } from 'react-transition-group'
 
 function More(props) {
+    const navigate = useNavigate()
     const { moreList } = props
     const { getMoreDataDispatch } = props
+    const [show, setShow] = useState(false);
     let { id } = useParams();
     useEffect(() => {
-        getMoreDataDispatch();
+        setShow(true),
+            getMoreDataDispatch();
     }, [])
 
     const renderInfo = (moreList) => {
@@ -31,8 +36,15 @@ function More(props) {
                             to="/eleme/all"
                             key={item.id}
                         >
-                            <div className="item">
-                                <p><img src={item.img} /></p>
+                            <div className="item" onScroll={forceCheck}>
+                                <LazyLoad className='lazy'
+                                    placeholder={<img width="100%"
+                                        height="100%" src={book} />}>
+                                    <img
+                                        width="100%"
+                                        height="100%"
+                                        src={item.img + "?param=300x200"} alt="" />
+                                </LazyLoad>
                                 <div className="content">
                                     <p className='title'>{item.title}</p>
                                     <p className='text'> {item.content}</p>
@@ -53,15 +65,15 @@ function More(props) {
                 <div className="module-header">
                     <div className="nav">
                         <div className="icon">
-                            <Link to='/select/male'>
+                            <div className='back' onClick={() => setShow(false)}>
                                 <i className='iconfont icon-fanhui' ></i>
-                            </Link>
+                            </div>
                         </div>
                         <h2 className="title">{item.title}</h2>
                     </div>
                     <div className="bar">
                         <div className="icon1">
-                            <i className='iconfont icon-sousuo'></i>
+                            <Link className='iconfont icon-sousuo' to={'/search'}></Link>
                         </div>
                         <div className="icon2">
                             <i className='iconfont icon-gengduo2'></i>
@@ -69,7 +81,9 @@ function More(props) {
                     </div>
                 </div>
                 <ol className="book">
-                    {renderBtnBannersPage()}
+                    <Scroll onScroll={forceCheck}>
+                        {renderBtnBannersPage()}
+                    </Scroll>
                 </ol>
             </div>
         ))
@@ -78,9 +92,20 @@ function More(props) {
 
 
     return (
-        <Wrapper>
-            {renderInfo(moreList)}
-        </Wrapper>
+        <CSSTransition
+            in={show}
+            timeout={30000}
+            appear={true}
+            classNames="fly"
+            unmountOnExit
+            onExit={() => {
+                navigate(-1)
+            }}
+        >
+            <Wrapper>
+                {renderInfo(moreList)}
+            </Wrapper>
+        </CSSTransition>
     )
 }
 
@@ -99,4 +124,4 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(More)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(More))

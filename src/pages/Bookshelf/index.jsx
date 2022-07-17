@@ -71,4 +71,4 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Bookshelf)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Bookshelf))

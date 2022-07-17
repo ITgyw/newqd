@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, memo } from 'react'
 import { Wrapper } from './style'
 import propTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import Swiper from 'swiper'
 
-export default function Recommend({ recommendList }) {
+function Recommend({ recommendList }) {
     let swiper = null;
     useEffect(() => {
         if (swiper) { return }
@@ -92,3 +92,4 @@ export default function Recommend({ recommendList }) {
 Recommend.propTypes = {
     recommendList: propTypes.array.isRequired
 }
+export default memo(Recommend)

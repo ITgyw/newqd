@@ -13,9 +13,9 @@ function Search(props) {
     const { historyList, foundList, hotList, popularList } = props
     const { getHistoryDataDispatch, getFoundDataDispatch, getHotDataDispatch, getPopularDataDispatch } = props
     const [show, setShow] = useState(false);
-    const searchBack = () => {
-        setShow(false);
-    }
+    // const searchBack = () => {
+    //     setShow(false);
+    // }
     // console.log(listList, '888888');
     useEffect(() => {
         setShow(true),
@@ -206,4 +206,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Search))

@@ -1,7 +1,69 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+        position: relative;
+        /* height:100%; */
+        /* top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;   */
+        /* background:#fbf1f2; */
+        width: 100%;
+        z-index: 100;
+        overflow: hidden;
+        transform-origin: right bottom;
+        /* CSSTranstion 过度类型给children  */
+        &.fly-enter,&.fly-appear {
+            opacity: 0;
+            /* 启用GPU加速 */
+            transform: translate3d(100%, 0, 0);
+        }
+        &.fly-enter-active, &.fly-apply-active {
+            opacity: 1;
+            transition: all .3s;
+            transform: translate3d(0, 0, 0);
+        }
+        &.fly-exit {
+            opacity: 1;
+            transform: translate3d(0,0,0)
+        }
+        &.fly-exit-active {
+            opacity: 0;
+            transition: all .3s;
+            transform: translate3d(100%, 0, 0);
+        }
+    /* position: fixed;
+        height:100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;  
+
+        width: 100%;
+        z-index: 100;
+        overflow: hidden;
+        transform-origin: right bottom;
+        &.fly-enter,&.fly-appear {
+            opacity: 0;
+
+            transform: translate3d(100%, 0, 0);
+        }
+        &.fly-enter-active, &.fly-apply-active {
+            opacity: 1;
+            transition: all .3s;
+            transform: translate3d(0, 0, 0);
+        }
+        &.fly-exit {
+            opacity: 1;
+            transform: translate3d(0,0,0)
+        }
+        &.fly-exit-active {
+            opacity: 0;
+            transition: all .3s;
+            transform: translate3d(100%, 0, 0);
+        } */
     .module {
+        
         .module-header{
             padding:0.62rem 0.5rem 0.56rem 0.5rem;
             border: 0 0 1px 0;
@@ -31,7 +93,7 @@ export const Wrapper = styled.div`
                 justify-items:center;
                 .icon1 {
                     padding-bottom:0.05rem;
-                    i{
+                    .iconfont {
                         font-size:1.2rem;
                     }
                 }
@@ -51,7 +113,7 @@ export const Wrapper = styled.div`
                     display:flex;
                     border: 0 0 1px 0 ;
                     /* border-color:#33373D; */
-                    p{
+                    .lazy {
                         margin: 0 0.4rem 0 0;
                         img{
                         width: 3.71rem;
