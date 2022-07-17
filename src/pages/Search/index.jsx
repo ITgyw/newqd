@@ -92,8 +92,8 @@ function Search(props) {
                     >
                         <div className="header">
                             <div className="left">
-                                <span>{item.id}</span>
-                                <span>{item.title}</span>
+                                <div className="id">{item.id}</div>
+                                <div>{item.title}</div>
                             </div>
                             <div className="right">
                                 {item.hotvalue}
@@ -114,8 +114,8 @@ function Search(props) {
                     >
                         <div className="header">
                             <div className="left">
-                                <span>{item.id}</span>
-                                <span>{item.title}</span>
+                                <div className="id">{item.id}</div>
+                                <div>{item.title}</div>
                             </div>
                             <div className="right">
                                 {item.hotvalue}
@@ -136,7 +136,7 @@ function Search(props) {
                         '--active-title-color': '#ed424b',
                     }}
                 >
-                    <Tabs.Tab title='热搜作品榜' key='1'>
+                    <Tabs.Tab title='热搜作品榜' key='1' className="hot">
                         {hotInfo()}
                     </Tabs.Tab>
                     <Tabs.Tab title='人气标签榜' key='2'>

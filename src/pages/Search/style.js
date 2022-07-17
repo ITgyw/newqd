@@ -139,9 +139,22 @@ export const ListWrapper = styled.div`
     background-color: #fff;
     margin: 0.5rem ;
     border-radius:1rem;
-    .item {
+    /* color:red; */
+    .adm-tabs-content {        
+        .item {
         margin-bottom:0 0 0.3rem 0;
         height:2rem;
+        &:nth-child(-n+3){
+                    .id {
+                        background:#ed424b;
+                        color:#fff;
+                    }
+                }
+        &:nth-child(n+4){
+           p{
+            color:#fff;
+           }
+        }
         .header{
             display:flex;
             justify-content:space-between;
@@ -149,9 +162,15 @@ export const ListWrapper = styled.div`
                 font-size:0.7rem;
                 font-family:Serif;
                 font-weight:500;
-                span {
+                display:flex;               
+                div {
                     margin-right:0.3rem;
                 }
+                .id {
+                    width:1rem;
+                    border-radius:0.3rem 0 0.3rem 0;
+                }
+
             }
         }
         p{
@@ -164,6 +183,8 @@ export const ListWrapper = styled.div`
             text-overflow: ellipsis;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1;
-}
+        }
     }
+    }
+    
 `
