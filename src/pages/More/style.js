@@ -2,14 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
         position: relative;
-        /* height:100%; */
-        /* top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;   */
-        /* background:#fbf1f2; */
+        /* padding-top:2rem; */
+       
         width: 100%;
-        z-index: 100;
+        z-index: 1;
         overflow: hidden;
         transform-origin: right bottom;
         /* CSSTranstion 过度类型给children  */
@@ -32,36 +28,6 @@ export const Wrapper = styled.div`
             transition: all .3s;
             transform: translate3d(100%, 0, 0);
         }
-    /* position: fixed;
-        height:100%;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;  
-
-        width: 100%;
-        z-index: 100;
-        overflow: hidden;
-        transform-origin: right bottom;
-        &.fly-enter,&.fly-appear {
-            opacity: 0;
-
-            transform: translate3d(100%, 0, 0);
-        }
-        &.fly-enter-active, &.fly-apply-active {
-            opacity: 1;
-            transition: all .3s;
-            transform: translate3d(0, 0, 0);
-        }
-        &.fly-exit {
-            opacity: 1;
-            transform: translate3d(0,0,0)
-        }
-        &.fly-exit-active {
-            opacity: 0;
-            transition: all .3s;
-            transform: translate3d(100%, 0, 0);
-        } */
     .module {
         
         .module-header{
@@ -69,7 +35,11 @@ export const Wrapper = styled.div`
             border: 0 0 1px 0;
             display:flex;
             justify-content: space-between;
-            
+            /* position:fixed;
+            top:0;
+            left:0;
+            z-index:2; */
+
             .nav{
 
                 display: flex;
