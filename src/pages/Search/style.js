@@ -56,9 +56,12 @@ export const Wrapper = styled.div`
                 height:100%;
                 width:80%;
                 border:0;
-                color:#cccccc;
+                color:#1a1819;
                 font-size:0.75rem;
                 padding:auto auto;
+                &::placeholder{
+                color: #cccccc;
+                }
             }
         }
         .back{

@@ -164,9 +164,9 @@ function Search(props) {
                         <input type="text" className='box'
                             placeholder='凡人修仙传'
                         />
-                        <i
+                        {/* <i
                             className="iconfont icon-delete"
-                        >&#xe61d;</i>
+                        >&#xe61d;</i> */}
                     </div>
                     <div className="back" onClick={() => {
                         setShow(false);
