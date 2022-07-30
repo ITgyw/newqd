@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { actionCreators } from './store/index'
 import { Wrapper, BookWrapper } from './style'
 
+
+
 function Bookshelf(props) {
     const { bookList } = props
     const { getBookDataDispatch } = props
