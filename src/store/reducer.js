@@ -3,7 +3,6 @@ import { combineReducers } from "redux";
 // 地方
 import {
     reducer as maleReducer,
-
 } from '@/pages/Select/Male/store/index'//as取名
 import {
     reducer as moreReducer
