@@ -15,6 +15,7 @@ export default (state = defaultState, action) => {
             }
         case actionTypes.CHANGE_NAVBAR:
             return {
+
                 ...state,
                 navbarsList: action.data
             }
@@ -28,13 +29,7 @@ export default (state = defaultState, action) => {
                 ...state,
                 recommendList: action.data
             }
-        // case actionTypes.CHANGE_ENTER_LOADING:
-        //     return {
-        //         ...state,
-        //         enterLoading: action.data
-        //     }
         default:
             return state
     }
-    // return defaultState
 }
