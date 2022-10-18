@@ -10,14 +10,20 @@ import book from '@/assets/images/book.png'
 import { CSSTransition } from 'react-transition-group'
 
 function More(props) {
+    // const { pathname } = useLocation()
+    // let pathRes = pathname.split('/')[2]
     const navigate = useNavigate()
     const { moreList } = props
-    const { getMoreDataDispatch } = props
+    const { getMoreDataDispatch,getMoreListActionDispatch } = props
     const [show, setShow] = useState(false);
     let { id } = useParams();
     useEffect(() => {
-        setShow(true),
+        setShow(true);
+        if( moreList.length==0) {
             getMoreDataDispatch();
+            // getMoreListActionDispatch();
+        } 
+
     }, [])
 
     const renderInfo = (moreList) => {
@@ -27,13 +33,13 @@ function More(props) {
                 // 外层不能加{}，对象包对象筛不出来
                 item.id == id
         );
-        console.log(res, '77777777777');
+        // console.log(res, '77777777777');
         const renderBtnBannersPage = () => {
             return res[0].contain.map(item => {
                 return (
                     <li key={item.id}>
                         <NavLink
-                            to="/eleme/all"
+                            to={`/detail/${item.id}`}
                             key={item.id}
                         >
                             <div className="item" onScroll={forceCheck}>
@@ -62,6 +68,7 @@ function More(props) {
 
         return res.map((item) => (
             <div className="module" key={item.id}>
+                {/* 头部导航栏 */}
                 <div className="module-header">
                     <div className="nav">
                         <div className="icon">
@@ -119,8 +126,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getMoreDataDispatch() {
-
             dispatch(actionCreators.getMoreList())
+        },
+        getMoreListActionDispatch() {
+            dispatch(actionCreators.getMoreListAction())
         }
     }
 }

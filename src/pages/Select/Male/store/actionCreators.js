@@ -26,7 +26,7 @@ export const getBannerList = () => {
         getBannerRequest()
             .then(data => {
                 const action = changeBannerList(data);
-                console.log(data);
+                // console.log(data);
                 dispatch(action)
             })
     }
@@ -36,7 +36,7 @@ export const getNavbarsList = () => {
         getNavbarsRequest()
             .then(data => {
                 const action = changNavbarsList(data);
-                console.log(data, '/////');
+                // console.log(data, '/////');
                 dispatch(action)
             })
     }
@@ -47,7 +47,7 @@ export const getBestsellersList = () => {
         getBestsellersRequest()
             .then(data => {
                 const action = changeBestsellersList(data);
-                console.log(data, '||||||')
+                // console.log(data, '||||||')
                 dispatch(action)
             })
     }
@@ -58,7 +58,7 @@ export const getRecommendList = () => {
         getRecommendRequest()
             .then(data => {
                 const action = changeRecommendList(data);
-                console.log(data, '---------')
+                // console.log(data, '---------')
                 dispatch(action)
             })
     }

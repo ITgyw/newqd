@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { connect } from "react-redux";
 import { actionCreators } from "./store/index";
-import { Wrapper, HistoryWrapper, FoundWrapper, ListWrapper } from './style'
+import { Wrapper, HistoryWrapper, FoundWrapper, ListWrapper,ShowWrapper } from './style'
 import { Tabs } from 'antd-mobile'
+import SearchBox from '@/components/common/search-box'
 import { CSSTransition } from 'react-transition-group'
 // import { DemoBlock } from 'demos'
 
@@ -12,11 +13,16 @@ function Search(props) {
     const navigate = useNavigate()
     const { historyList, foundList, hotList, popularList } = props
     const { getHistoryDataDispatch, getFoundDataDispatch, getHotDataDispatch, getPopularDataDispatch } = props
+    const [query, setQuery] = useState('')
     const [show, setShow] = useState(false);
-    // const searchBack = () => {
-    //     setShow(false);
-    // }
-    // console.log(listList, '888888');
+
+    const searchBack = () => {
+        setShow(false);
+    }
+    const handleQuery = (q) => {
+        // console.log(q)
+        setQuery(q)
+    }
     useEffect(() => {
         setShow(true),
             getHistoryDataDispatch(),
@@ -80,9 +86,6 @@ function Search(props) {
         )
     }
     const ListInfo = (hotList, popularList) => {
-        // console.log(hotList, popularList, '0000000');
-        // console.log(hotList.content, popularList.content, '00000');
-        // console.log(hotInfo, popularInfo, '测试');
         const hotInfo = () => {
             return hotList.map((item) => {
                 return (
@@ -157,25 +160,20 @@ function Search(props) {
                 navigate(-1)
             }}
         >
-            <Wrapper>
-                <div className="SearchBox">
-                    <div className="Box">
-                        <i className="iconfont icon-sousuo"></i>
-                        <input type="text" className='box'
-                            placeholder='凡人修仙传'
-                        />
-                        {/* <i
-                            className="iconfont icon-delete"
-                        >&#xe61d;</i> */}
-                    </div>
-                    <div className="back" onClick={() => {
-                        setShow(false);
-                    }}>取消</div>
+            <Wrapper >
+                <div className="search_box_wrapper">
+                    <SearchBox
+                        back={searchBack}
+                        newQuery={query}
+                        handleQuery={handleQuery}>
+                    </SearchBox>
                 </div>
-                {Info(historyList, foundList)}
-                <ListWrapper>
-                    {ListInfo(hotList, popularList)}
-                </ListWrapper>
+                <ShowWrapper show={!query}>
+                    {Info(historyList, foundList)}
+                    <ListWrapper>
+                        {ListInfo(hotList, popularList)}
+                    </ListWrapper>
+                </ShowWrapper>                
             </Wrapper>
         </CSSTransition>
     )

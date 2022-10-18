@@ -29,14 +29,14 @@ function Male(props) {
     } = props
 
     useEffect(() => {
-        console.log('?????????????????')
+        // console.log('?????????????????')
         getBannerDataDispatch();
         getNavbarsDataDispatch();
         getBestsellersDataDispatch();
         getRecommendDataDispatch();
     }, [])
 
-    console.log(moreList, "++++++++++++++++++++++++");
+    // console.log(moreList, "++++++++++++++++++++++++");
     return (
         <Wrapper>
             <Scroll className="list" onScroll={forceCheck}>

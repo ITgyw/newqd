@@ -76,6 +76,8 @@ export const BookWrapper = styled.div`
                     margin:0.1rem 0 0.3rem 0;
                     justify-content:space-between;
                     .iconfont{
+                        background-color:#fff;
+                        border:none;
                         margin-right:0.4rem;
                     }
                 }

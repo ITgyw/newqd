@@ -1,39 +1,58 @@
 import React, { useEffect } from 'react'
+import { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { actionCreators } from './store/index'
+import { setBookListAction } from '@/pages/More/store/actionCreators'
 import { Wrapper, BookWrapper } from './style'
-
-
-
-function Bookshelf(props) {
-    const { bookList } = props
+const Bookshelf = (props) => {
+    const { moreList2 } = props
     const { getBookDataDispatch } = props
+    // console.log(moreList2);
+    const [more, setMore] = useState([])
+    // const [test,setTest]=useState(0)
+    // const dataList = moreList[0].contain
     useEffect(() => {
-        getBookDataDispatch();
-    }, [])
-    const bookInfo = (bookList) => {
-        return bookList.map(item => {
-            return (
-                <li key={item.id} >
-                    <div className="item">
-                        {/* <div className='img'> */}
-                        <img src={item.img} />
-                        {/* </div> */}
-                        <div className="content">
-                            <div className="title">
-                                <div >{item.title}</div>
-                                <div className='iconfont icon-gengduo'></div>
-                            </div>
-                            <div className='author'>{item.author}</div>
-                            <div className="ell">{item.ell}</div>
-                        </div>
+        setMore(moreList2)
+    }, [moreList2])
 
-                    </div>
-                </li>
-            )
-        })
+    const bookInfo = () => {
+        return more
+            .filter(item => item.isBook == true)
+            .map(item2 => {
+                return (
+                    <li key={item2.id} >
+                        <div className="item">
+                            {/* <div className='img'> */}
+                            <img src={item2.img} />
+                            {/* </div> */}
+                            <div className="content">
+                                <div className="title">
+                                    <div >{item2.title}</div>
+                                    <button 
+                                        className='iconfont icon-24gl-trash'
+                                        onClick={
+                                            async() => {
+
+                                                 getBookDataDispatch(item2.id)
+                                                // setMore(moreList2)
+                                                setMore(more=>more.filter(item=>item.id!=item2.id))
+                                                
+                                            }
+
+                                        }
+                                    >
+                                       
+                                    </button>
+                                </div>
+                                <div className='author'>{item2.mear}</div>
+                                <div className="ell">{item2.type}</div>
+                            </div>
+                        </div>
+                    </li>
+                )
+            })
     }
+
     return (
         <Wrapper>
             <div className="header">
@@ -43,9 +62,7 @@ function Bookshelf(props) {
                     <input type="text" className='box'
                         placeholder='凡人修仙传'
                     />
-                    <i
-                        className="iconfont icon-delete"
-                    >&#xe61d;</i>
+
                 </Link>
                 <div className='icon'>
                     <i className='iconfont icon-shizhong'></i>
@@ -53,8 +70,9 @@ function Bookshelf(props) {
                 </div>
 
             </div>
-            <BookWrapper>
-                {bookInfo(bookList)}
+            <BookWrapper>   
+                {bookInfo()}
+                {/* <button onClick={()=>{setMore([])}}>2</button>  */}
             </BookWrapper>
         </Wrapper>
     )
@@ -63,14 +81,22 @@ function Bookshelf(props) {
 // state 状态树
 const mapStateToProps = (state) => {
     return {
-        bookList: state.book.bookList
+        moreList2: state.more.moreList2
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getBookDataDispatch() {
-            dispatch(actionCreators.getBookList())
+        getBookDataDispatch(id) {
+            dispatch(setBookListAction(id))
+            // console.log('//////');
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Bookshelf))
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         getBookDataDispatch() {
+//             dispatch(actionCreators.getBookList())
+//         }
+//     }
+// }
+export default connect(mapStateToProps, mapDispatchToProps)(Bookshelf)

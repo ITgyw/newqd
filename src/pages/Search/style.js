@@ -34,42 +34,7 @@ export const Wrapper = styled.div`
         transition: all .3s;
         transform: translate3d(100%, 0, 0);
     }
-    .SearchBox {
-        margin:1rem 0.5rem 0.75rem 0.5rem;
-        display:flex;
-        justify-content:space-between;
-        /* justify-items:center; */
-        align-items:center;
-        .Box{
-            width:15rem;
-            height:2rem;
-            background: #ffffff;
-            border-radius: 3rem;
-            display:flex;
-            align-items:center;
-            padding-left:0.6rem;
-            .icon-sousuo{
-                font-size:1.4rem;
-                font-weight:800;
-            }
-            .box{
-                height:100%;
-                width:80%;
-                border:0;
-                color:#1a1819;
-                font-size:0.75rem;
-                padding:auto auto;
-                &::placeholder{
-                color: #cccccc;
-                }
-            }
-        }
-        .back{
-            color:#808080;
-            font-size:0.85rem;
-
-        }
-    }
+    
 `
 export const HistoryWrapper = styled.div`
     margin:1rem 0.5rem 0 0.5rem;
@@ -190,4 +155,8 @@ export const ListWrapper = styled.div`
     }
     }
     
+    
+`
+export const ShowWrapper = styled.div`
+    display: ${props => props.show ? "" : "none"};
 `

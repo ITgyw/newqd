@@ -8,6 +8,7 @@ import Male from '../pages/Select/Male';
 const Female = lazy(() => import('@/pages/Select/Female'))
 const More = lazy(() => import('@/pages/More'))
 const Search = lazy(() => import('@/pages/Search'))
+const Detail = lazy(() => import('@/pages/Detail'))
 const RouterConfig = () => {
     return (
         <Suspense fallback={null}>
@@ -23,6 +24,7 @@ const RouterConfig = () => {
                 <Route path="/mine" element={<Mine />} />
                 <Route path="/more/:id" element={<More />} />
                 <Route path="/search" element={<Search />} />
+                <Route path="/detail/:id" element={<Detail />}/>
             </Routes>
         </Suspense>
 
